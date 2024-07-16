@@ -133,51 +133,70 @@ int excluir()
 
 int main() //ponto de partida para a execução do programa
 {
+	setlocale(LC_ALL, "Portuguese"); //para identificar o idioma
+
 	int opcao=0;//definindo as variaveis
 	int laco=1;
+	char digitarsenha[10];
+	int comparacao;
 	
-	for(laco=1;laco=1;)//macete para ficar sempre no for, (numero de entrada/numero de saida/se quiser operar o valor obtido)
+	printf("### Registro e Consulta de Usuários EBAC ###\n\n");
+	printf("Login de administrador\nSenha: ");
+	scanf("%s", digitarsenha);
+	
+	comparacao = strcmp(digitarsenha, "admin");
+	
+	if(comparacao == 0)
 	{
-		setlocale(LC_ALL, "Portuguese"); //para identificar o idioma
-		
-		system("cls");
-		
-		printf("### Registro e Consulta de Usuários EBAC ###\n\n"); //as # servem apenas para aparência
-		printf("\tO que deseja fazer?\n\n"); //o /t serve para dar um espaço, o /n pula a linha.	
-		printf("\t1 - Registrar nome\n");
-		printf("\t2 - Consultar nome\n");
-		printf("\t3 - Excluir nome\n");
-		printf("\t4 - Sair do progama\n\n");
-		printf("Opção desejada: ");//fim do menu
-	
-
-		scanf("%d", &opcao);//para dar valor para a variável "opcao"
-	
-		system("cls");//para excluir todas as mensagens escritas antes
-	
-		switch(opcao)//utlizado para não ter que usar tantos IF's
+			
+		for(laco=1;laco=1;)//macete para ficar sempre no for, (numero de entrada/numero de saida/se quiser operar o valor obtido)
 		{
-			case 1:
-			registro(); 				//chama a função registro
-			break;
 			
-			case 2:
-			consulta();					//chama a função consulta
-			break;
+			system("cls");
 			
-			case 3:
-			excluir(); 					//chama a função excluir 
-			break;
-			
-			case 4:
-			printf("Obrigado por utilizar o nosso sistema!");
-			return 0;
-			break;
-			
-			default://o deafault no switch, é utlizado para qualquer valor que não entrar nos casos
-			printf("Está opção não está disponível!\n");
-			system("pause");
-			break;
+			printf("### Registro e Consulta de Usuários EBAC ###\n\n"); //as # servem apenas para aparência
+			printf("\tO que deseja fazer?\n\n"); //o /t serve para dar um espaço, o /n pula a linha.	
+			printf("\t1 - Registrar nome\n");
+			printf("\t2 - Consultar nome\n");
+			printf("\t3 - Excluir nome\n");
+			printf("\t4 - Sair do progama\n\n");
+			printf("Opção desejada: ");//fim do menu
+		
+	
+			scanf("%d", &opcao);//para dar valor para a variável "opcao"
+		
+			system("cls");//para excluir todas as mensagens escritas antes
+		
+			switch(opcao)//utlizado para não ter que usar tantos IF's
+			{
+				case 1:
+				registro(); 				//chama a função registro
+				break;
+				
+				case 2:
+				consulta();					//chama a função consulta
+				break;
+				
+				case 3:
+				excluir(); 					//chama a função excluir 
+				break;
+				
+				case 4:
+				printf("Obrigado por utilizar o nosso sistema!");
+				return 0;
+				break;
+				
+				default://o deafault no switch, é utlizado para qualquer valor que não entrar nos casos
+				printf("Está opção não está disponível!\n");
+				system("pause");
+				break;
+			}
 		}
 	}
+	else
+	{
+		system("cls");
+		printf("Senha incorreta!\nVocê será removido do nosso sistema.");
+		return 0;
+ 	}
 }
