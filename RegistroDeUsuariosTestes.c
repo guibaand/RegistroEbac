@@ -146,7 +146,8 @@ int main() //ponto de partida para a execução do programa
 		printf("\tO que deseja fazer?\n\n"); //o /t serve para dar um espaço, o /n pula a linha.	
 		printf("\t1 - Registrar nome\n");
 		printf("\t2 - Consultar nome\n");
-		printf("\t3 - Excluir nome\n\n");
+		printf("\t3 - Excluir nome\n");
+		printf("\t4 - Sair do progama\n\n");
 		printf("Opção desejada: ");//fim do menu
 	
 
@@ -166,6 +167,11 @@ int main() //ponto de partida para a execução do programa
 			
 			case 3:
 			excluir(); 					//chama a função excluir 
+			break;
+			
+			case 4:
+			printf("Obrigado por utilizar o nosso sistema!");
+			return 0;
 			break;
 			
 			default://o deafault no switch, é utlizado para qualquer valor que não entrar nos casos
