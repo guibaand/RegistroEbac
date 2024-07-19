@@ -14,15 +14,15 @@ int registro()						//função para cadastrar os usários no sistema
 	printf("Digite seu CPF: ");
 	scanf("%s", cpf);    			//salva valor para a variável CPF
 	
-	strcpy(arquivo, cpf); //responsável por coipar os valores das strings
+	strcpy(arquivo, cpf); 			//responsável por coipar os valores das strings
 	
-	FILE *file; //cria arquivo no banco de dados
-	file = fopen(arquivo, "w"); // cria o arquivo na pasta do program | w de write, pois vai armazenar um novo arquivo
-	fprintf(file,cpf); //salva o valor da variavel
-	fclose(file); // fecha o arquivo
+	FILE *file; 					//cria arquivo no banco de dados
+	file = fopen(arquivo, "w"); 	// cria o arquivo na pasta do program | w de write, pois vai armazenar um novo arquivo
+	fprintf(file,cpf);				 //salva o valor da variavel
+	fclose(file); 					// fecha o arquivo
 	
-	file = fopen(arquivo, "a"); //"a" para atualizar o arquivo
-	fprintf(file, ", "); //para adicionar um "," no final do cpf
+	file = fopen(arquivo, "a");		 //"a" para atualizar o arquivo
+	fprintf(file, ", "); 			//para adicionar um "," no final do cpf
 	fclose(file);
 	
 	printf("Digite seu primeiro nome: ");
@@ -74,15 +74,15 @@ int consulta()
 	
 	if(file == NULL)
 	{
-		system("cls");
 		printf("Não existe nenhum regristo para esse CPF!\n\n");
+		system("pause");
 	}
 	else 
 	{
 	
 		while(fgets(conteudo, 200, file) != NULL) // enquanto tiver conteúdo dentro do arquivo
 		{
-			separacao = strtok(conteudo, ", ");
+			separacao = strtok(conteudo, ", "); 	//vai "quebrar" as informações, toda vez que houver a , para separar as informações
 			if(separacao != NULL)
 			{
 				system("cls");
@@ -144,18 +144,18 @@ int main() //ponto de partida para a execução do programa
 	printf("Login de administrador\nSenha: ");
 	scanf("%s", digitarsenha);
 	
-	comparacao = strcmp(digitarsenha, "admin");
+	comparacao = strcmp(digitarsenha, "admin");      		//compara a string "digitarsenha" com a palavra "admin"
 	
 	if(comparacao == 0)
 	{
 			
-		for(laco=1;laco=1;)//macete para ficar sempre no for, (numero de entrada/numero de saida/se quiser operar o valor obtido)
+		for(laco=1;laco=1;)				//macete para ficar sempre no for, (numero de entrada/numero de saida/se quiser operar o valor obtido)
 		{
 			
 			system("cls");
 			
-			printf("### Registro e Consulta de Usuários EBAC ###\n\n"); //as # servem apenas para aparência
-			printf("\tO que deseja fazer?\n\n"); //o /t serve para dar um espaço, o /n pula a linha.	
+			printf("### Registro e Consulta de Usuários EBAC ###\n\n"); 		//as # servem apenas para aparência
+			printf("\tO que deseja fazer?\n\n"); 								//o /t serve para dar um espaço, o /n pula a linha.	
 			printf("\t1 - Registrar nome\n");
 			printf("\t2 - Consultar nome\n");
 			printf("\t3 - Excluir nome\n");
@@ -163,22 +163,22 @@ int main() //ponto de partida para a execução do programa
 			printf("Opção desejada: ");//fim do menu
 		
 	
-			scanf("%d", &opcao);//para dar valor para a variável "opcao"
+			scanf("%d", &opcao);						//para dar valor para a variável "opcao"
 		
-			system("cls");//para excluir todas as mensagens escritas antes
+			system("cls");								//para excluir todas as mensagens escritas antes
 		
-			switch(opcao)//utlizado para não ter que usar tantos IF's
+			switch(opcao)								//utlizado para não ter que usar tantos IF's
 			{
 				case 1:
-				registro(); 				//chama a função registro
+				registro(); 							//chama a função registro
 				break;
 				
 				case 2:
-				consulta();					//chama a função consulta
+				consulta();								//chama a função consulta
 				break;
 				
 				case 3:
-				excluir(); 					//chama a função excluir 
+				excluir(); 								//chama a função excluir 
 				break;
 				
 				case 4:
@@ -186,7 +186,7 @@ int main() //ponto de partida para a execução do programa
 				return 0;
 				break;
 				
-				default://o deafault no switch, é utlizado para qualquer valor que não entrar nos casos
+				default:						//o deafault no switch, é utlizado para qualquer valor que não entrar nos casos
 				printf("Está opção não está disponível!\n");
 				system("pause");
 				break;
